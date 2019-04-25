@@ -87,13 +87,16 @@ cut_tree <- function( phy, x ){
 #' tips2 = c("d", "e", "f")
 #' ctree = generate_constaint_tree( tips1, tips2 )
 #' @export
-generate_constaint_tree <- function( tips1, tips2 ){
+generate_constraint_tree <- function( tips1, tips2 ){
 	clade1 = paste( tips1, collapse=",")
 	clade2 = paste( tips2, collapse=",")
 	treetext = paste( c("((", clade1, "),(", clade2, "));"), collapse="")
 	phy = read.tree( text=treetext )
 	return( phy )
 }
+
+# For backwards compatibility. see generate_constraint_tree
+generate_constaint_tree <- generate_constraint_tree
 
 #' Generates the "zero-constrained" tree described by Susko 2014
 #' (http://dx.doi.org/10.1093/molbev/msu039)
